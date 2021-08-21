@@ -1,10 +1,10 @@
 package view;
-import controller.Conexaobd;
+import controller.ConexaoBD;
 import java.util.Scanner;
 
 public class Principal{
     public static void main(String Args[]){
-        Conexaobd conex=new Conexaobd();
+        ConexaoBD conex=new ConexaoBD();
         conex.conexao();
         Scanner teclado =new Scanner(System.in);
         /*tela principal*/
@@ -31,30 +31,32 @@ public class Principal{
             opcao="usuario";
             Limpar();
             TelaUsuario.main(null);
-            Limpar();
 	} 
         
         /*opção livro*/
         if(arrayTokens[0].equals("livros")||arrayTokens[0].equals("2")) {
             Limpar();
             opcao="livros";
+            TelaLivros.main(null);
 	}
         
         /*opção emprestimo*/
         if(arrayTokens[0].equals("empretimo")||arrayTokens[0].equals("3")) {
-            opcao="emprestimo";
             Limpar();
+            opcao="emprestimo";
+            TelaEmprestimo.main(null);
 	}
         
         /*menu multas*/
         if(arrayTokens[0].equals("multas")||arrayTokens[0].equals("4")) {
-           TelaUsuario.main(null);
            Limpar();
+           TelaMultas.main(null);
 	}
         
         /*opção sair-exit*/
         if(arrayTokens[0].equals("exit")||arrayTokens[0].equals("0")) {
-            System.out.println("Programa Encerrado:");
+            Limpar();
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!Programa Encerrado!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             conex.desconecta();
             System.exit(0);
 	}
@@ -62,7 +64,6 @@ public class Principal{
         /*opção limpar para linux*/
         if(arrayTokens[0].equals("limpar")||arrayTokens[0].equals("clear")) {
            Limpar();
-           System.out.println("Programa Encerrado:");
 	}
         
     }while(opcao.equals("principal"));
@@ -71,7 +72,7 @@ public class Principal{
     public static String linha;
     public static void Limpar() {
          System.out.print("\033\143");//Limpar terminal
-}
     }
+}
 
 

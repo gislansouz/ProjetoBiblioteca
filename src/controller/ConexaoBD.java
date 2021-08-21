@@ -10,7 +10,7 @@ import java.sql.*;
  *
  * @author gislan
  */
-public class Conexaobd {
+public class ConexaoBD {
    
     public Statement stm;
     public ResultSet rs;
